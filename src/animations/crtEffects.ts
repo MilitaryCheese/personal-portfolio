@@ -1,11 +1,11 @@
 import { gsap } from 'gsap'
 
 export function initCRTAmbient() {
-  gsap.set(document.documentElement, { '--scanline-opacity': 0.06 })
+  gsap.set(document.documentElement, { '--scanline-opacity': 0.15 })
 
   const timeline = gsap.timeline({ repeat: -1, yoyo: true })
   timeline.to(document.documentElement, {
-    '--scanline-opacity': 0.1,
+    '--scanline-opacity': 0.22,
     duration: 4,
     ease: 'sine.inOut',
   })

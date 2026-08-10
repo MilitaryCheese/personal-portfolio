@@ -1,3 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.prompt {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
 .folderGrid {
   display: flex;
   align-items: flex-start;

@@ -12,9 +12,10 @@
   --color-accent: #ff6b35;
   --font-display: 'Akkurat Mono', monospace;
   --font-mono: 'Intel One Mono', monospace;
-  --scanline-opacity: 0.08;
-  --cursor-light-radius: 200px;
-  --cursor-light-intensity: 0.15;
+  --scanline-opacity: 0.8;
+  --cursor-light-radius: 800px;
+  --cursor-light-intensity: 0.005;
+  --scanline-boost-radius: 800px;
 }
 
 html, body, #root {

@@ -5,8 +5,18 @@
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 2px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 4px
+    rgba(91, 91, 91, var(--scanline-opacity)) 2px,
+    rgba(91, 91, 91, var(--scanline-opacity)) 4px
+  );
+  mask-image: radial-gradient(
+    circle var(--scanline-boost-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    white 0%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--scanline-boost-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    white 0%,
+    rgba(255, 255, 255, 0.35) 100%
   );
   pointer-events: none;
   z-index: 100;
@@ -18,9 +28,9 @@
   background: radial-gradient(
     circle var(--cursor-light-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
     rgba(255, 255, 255, var(--cursor-light-intensity)),
-    transparent 70%
+    transparent 1%
   );
   pointer-events: none;
   z-index: 99;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
 }

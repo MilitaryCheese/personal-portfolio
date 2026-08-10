@@ -1,11 +1,11 @@
 import styles from './CRTBackground.module.css'
-import CursorLight from './CursorLight'
+// import CursorLight from './CursorLight'
 
 const CRTBackground = () => {
   return (
     <div className={styles.crtBackground}>
       <div className="scanlines" />
-      <CursorLight />
+      {/* <CursorLight /> */}
     </div>
   )
 }
