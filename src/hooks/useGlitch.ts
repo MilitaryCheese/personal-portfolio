@@ -7,13 +7,33 @@ export function useGlitch<T extends HTMLElement>(ref: RefObject<T | null>) {
     const element = ref.current
     if (!element) return
 
-    gsap
-      .timeline()
-      .to(element, { skewX: -8, x: -3, opacity: 0.6, duration: 0.08, ease: 'power1.inOut' })
-      .to(element, { skewX: 6, x: 3, opacity: 1, duration: 0.08, ease: 'power1.inOut' })
-      .to(element, { skewX: -4, x: -2, opacity: 0.7, duration: 0.08, ease: 'power1.inOut' })
-      .to(element, { skewX: 2, x: 1, opacity: 1, duration: 0.08, ease: 'power1.inOut' })
-      .to(element, { skewX: 0, x: 0, opacity: 1, duration: 0.08, ease: 'power1.inOut' })
+    gsap.timeline()
+      .to(element, {
+        duration: 0.08,
+        ease: 'none',
+        textShadow: '3px 0 0 rgba(255,0,0,0.8), -3px 0 0 rgba(0,255,255,0.8)'
+      })
+      .to(element, {
+        duration: 0.06,
+        ease: 'none',
+        textShadow: '-4px 0 0 rgba(255,0,0,0.6), 4px 0 0 rgba(0,255,255,0.6)'
+      })
+      .to(element, {
+        duration: 0.06,
+        ease: 'none',
+        textShadow: '2px 0 0 rgba(255,0,0,0.9), -2px 0 0 rgba(0,255,255,0.9)'
+      })
+      .to(element, {
+        duration: 0.08,
+        ease: 'none',
+        textShadow: '-1px 0 0 rgba(255,0,0,0.4), 1px 0 0 rgba(0,255,255,0.4)'
+      })
+      .to(element, {
+        duration: 0.1,
+        ease: 'power2.out',
+        textShadow: '0px 0 0 rgba(255,0,0,0), 0px 0 0 rgba(0,255,255,0)'
+      })
+
   }, [ref])
 
   return triggerGlitch
