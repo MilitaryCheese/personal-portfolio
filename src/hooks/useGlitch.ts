@@ -11,27 +11,27 @@ export function useGlitch<T extends HTMLElement>(ref: RefObject<T | null>) {
       .to(element, {
         duration: 0.08,
         ease: 'none',
-        textShadow: '3px 0 0 rgba(255,0,0,0.8), -3px 0 0 rgba(0,255,255,0.8)'
+        filter: 'drop-shadow(3px 0 0 rgba(255,0,0,0.8)) drop-shadow(-3px 0 0 rgba(0,255,255,0.8))'
       })
       .to(element, {
         duration: 0.06,
         ease: 'none',
-        textShadow: '-4px 0 0 rgba(255,0,0,0.6), 4px 0 0 rgba(0,255,255,0.6)'
+        filter: 'drop-shadow(-4px 0 0 rgba(255,0,0,0.6)) drop-shadow(4px 0 0 rgba(0,255,255,0.6))'
       })
       .to(element, {
         duration: 0.06,
         ease: 'none',
-        textShadow: '2px 0 0 rgba(255,0,0,0.9), -2px 0 0 rgba(0,255,255,0.9)'
+        filter: 'drop-shadow(2px 0 0 rgba(255,0,0,0.9)) drop-shadow(-2px 0 0 rgba(0,255,255,0.9))'
       })
       .to(element, {
         duration: 0.08,
         ease: 'none',
-        textShadow: '-1px 0 0 rgba(255,0,0,0.4), 1px 0 0 rgba(0,255,255,0.4)'
+        filter: 'drop-shadow(-1px 0 0 rgba(255,0,0,0.4)) drop-shadow(1px 0 0 rgba(0,255,255,0.4))'
       })
       .to(element, {
-        duration: 0.1,
+        duration: 0.01,
         ease: 'power2.out',
-        textShadow: '0px 0 0 rgba(255,0,0,0), 0px 0 0 rgba(0,255,255,0)'
+        filter: 'drop-shadow(0px 0 0 rgba(255,0,0,0)) drop-shadow(0px 0 0 rgba(0,255,255,0))'
       })
 
   }, [ref])
