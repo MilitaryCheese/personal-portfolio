@@ -55,7 +55,7 @@ const WipDialog = ({ open, onClose, message, link }: WipDialogProps) => {
           </a>
         )}
         <button type="button" className={`${styles.closeButton} text-small`} onClick={onClose}>
-          [ CLOSE ]
+          [ ESC ]
         </button>
       </div>
     </dialog>
