@@ -30,7 +30,7 @@
 }
 
 .folderItem:hover .iconSvg {
-  fill: var(--color-primary);
+  /* fill: var(--color-primary); */
 }
 
 .displayName {
