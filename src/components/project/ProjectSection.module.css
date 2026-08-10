@@ -1,0 +1,10 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.heading {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

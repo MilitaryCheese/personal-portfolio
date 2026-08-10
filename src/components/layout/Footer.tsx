@@ -3,7 +3,11 @@ import styles from './Footer.module.css'
 import LiveClock from '../ui/LiveClock'
 import { useGlitch } from '../../hooks/useGlitch'
 
-const Footer = () => {
+interface FooterProps {
+  onAboutOpen: () => void
+}
+
+const Footer = ({ onAboutOpen }: FooterProps) => {
   const aboutRef = useRef<HTMLSpanElement>(null)
   const triggerAboutGlitch = useGlitch(aboutRef)
 
@@ -17,6 +21,7 @@ const Footer = () => {
         ref={aboutRef}
         className={styles.aboutLink}
         onMouseEnter={() => triggerAboutGlitch()}
+        onClick={onAboutOpen}
       >
         [ ABOUT ]
       </span>

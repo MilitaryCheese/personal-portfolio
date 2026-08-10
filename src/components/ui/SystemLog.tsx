@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './SystemLog.module.css'
 
+const SYSTEM_LOG_EVENT = 'portfolio:system-log'
+
+export function pushSystemLogMessage(message: string) {
+  window.dispatchEvent(new CustomEvent<string>(SYSTEM_LOG_EVENT, { detail: message }))
+}
+
 const messages = [
   '// scanning portfolio assets... OK',
   '// user detected. hello.',
@@ -37,6 +43,15 @@ const SystemLog = () => {
     }, CYCLE_INTERVAL_MS)
 
     return () => clearInterval(cycleTimer)
+  }, [])
+
+  useEffect(() => {
+    const handlePush = (event: Event) => {
+      const message = (event as CustomEvent<string>).detail
+      setLog((prev) => [...prev, message].slice(-VISIBLE_LINES))
+    }
+    window.addEventListener(SYSTEM_LOG_EVENT, handlePush)
+    return () => window.removeEventListener(SYSTEM_LOG_EVENT, handlePush)
   }, [])
 
   return (

@@ -3,18 +3,18 @@ import styles from './FolderGrid.module.css'
 import FolderItem from './FolderItem'
 import BlinkingCursor from '../ui/BlinkingCursor'
 import { projects } from '../../data/projects'
-import { typewriterIntro } from '../../animations/folderAnimations'
+import { enterAllFolders, exitAllFolders, typewriterIntro } from '../../animations/folderAnimations'
+import type { Project } from '../../types'
 
 const PROMPT_TEXT = '> SELECT A PROJECT TO INITIALIZE'
 
-const placeholderFolders = [
-  { codename: 'PROJECT_01', displayName: 'WEATHERED.APP' },
-  { codename: 'PROJECT_02', displayName: 'DRIFTLY.APP' },
-  { codename: 'PROJECT_03', displayName: 'PROJECT_03' },
-]
+interface FolderGridProps {
+  onProjectSelect: (project: Project) => void
+}
 
-const FolderGrid = () => {
+const FolderGrid = ({ onProjectSelect }: FolderGridProps) => {
   const promptRef = useRef<HTMLSpanElement>(null)
+  const folderRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     if (!promptRef.current) return
@@ -24,10 +24,15 @@ const FolderGrid = () => {
     }
   }, [])
 
-  const folders =
-    projects.length > 0
-      ? projects.map((project) => ({ codename: project.codename, displayName: project.displayName }))
-      : placeholderFolders
+  useEffect(() => {
+    const elements = folderRefs.current.filter((el): el is HTMLDivElement => el !== null)
+    enterAllFolders(elements)
+  }, [])
+
+  const handleSelect = (project: Project) => {
+    const elements = folderRefs.current.filter((el): el is HTMLDivElement => el !== null)
+    exitAllFolders(elements, () => onProjectSelect(project))
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -36,8 +41,15 @@ const FolderGrid = () => {
         <BlinkingCursor />
       </p>
       <div className={styles.folderGrid}>
-        {folders.map((folder) => (
-          <FolderItem key={folder.codename} codename={folder.codename} displayName={folder.displayName} />
+        {projects.map((project, index) => (
+          <FolderItem
+            key={project.id}
+            project={project}
+            registerRef={(element) => {
+              folderRefs.current[index] = element
+            }}
+            onSelect={handleSelect}
+          />
         ))}
       </div>
     </div>
