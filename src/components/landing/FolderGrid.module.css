@@ -1,0 +1,5 @@
+.folderGrid {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}

@@ -1,0 +1,27 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #000000;
+  --color-primary: #00ff41;
+  --color-secondary: #ffffff;
+  --color-dim: #333333;
+  --color-accent: #ff6b35;
+  --font-display: 'Akkurat Mono', monospace;
+  --font-mono: 'Intel One Mono', monospace;
+  --scanline-opacity: 0.08;
+  --cursor-light-radius: 200px;
+  --cursor-light-intensity: 0.15;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-family: var(--font-mono);
+  overflow: hidden;
+}

@@ -1,0 +1,26 @@
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 2px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+.cursor-light {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle var(--cursor-light-radius) at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    rgba(255, 255, 255, var(--cursor-light-intensity)),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 99;
+  mix-blend-mode: screen;
+}

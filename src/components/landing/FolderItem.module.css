@@ -1,0 +1,38 @@
+.folderItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 0 0px rgba(0, 255, 65, 0);
+}
+
+.codename {
+  text-transform: uppercase;
+}
+
+.icon {
+  width: 6rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconSvg {
+  width: 100%;
+  height: 100%;
+  fill: var(--color-secondary);
+  transition: fill 0.2s ease;
+}
+
+.folderItem:hover .iconSvg {
+  fill: var(--color-primary);
+}
+
+.displayName {
+  text-transform: uppercase;
+}
