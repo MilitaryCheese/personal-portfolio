@@ -161,15 +161,17 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
   background: transparent;
-  border: 1px solid var(--color-dim);
+  border: none;
+  padding: 0;
   color: var(--color-secondary);
   font-family: var(--font-mono);
-  padding: 0.5rem 1rem;
+  font-size: inherit;
+  letter-spacing: inherit;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
 
 .backButton:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  opacity: 1;
 }

@@ -4,6 +4,8 @@ import styles from './ProjectPanel.module.css'
 import ProjectSection from './ProjectSection'
 import { enterPanel, exitPanel } from '../../animations/panelTransitions'
 import { pushSystemLogMessage } from '../ui/SystemLog'
+import { useGlitch } from '../../hooks/useGlitch'
+
 
 export interface ProjectPanelHandle {
   close: () => void
@@ -23,6 +25,8 @@ const PANIC_LABEL: Record<Project['panicLevel'], string> = {
 
 const ProjectPanel = forwardRef<ProjectPanelHandle, ProjectPanelProps>(({ project, onClose }, ref) => {
   const panelRef = useRef<HTMLDivElement | null>(null)
+  const backButtonRef = useRef<HTMLButtonElement>(null)
+  const triggerBackGlitch = useGlitch(backButtonRef)
 
   useEffect(() => {
     if (!panelRef.current) return
@@ -134,8 +138,14 @@ const ProjectPanel = forwardRef<ProjectPanelHandle, ProjectPanelProps>(({ projec
           <p className={`${styles.attribution} text-small text-dim`}>— former supervisor, probably</p>
         </ProjectSection>
 
-        <button type="button" className={`${styles.backButton} text-small`} onClick={handleClose}>
-          // [ BACK TO PROJECTS ]
+        <button
+          ref={backButtonRef}
+          type="button"
+          className={`${styles.backButton} text-small`}
+          onMouseEnter={() => triggerBackGlitch()}
+          onClick={handleClose}
+        >
+          // [ BACK OR PRESS ESC ]
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { gsap } from 'gsap'
 
 export function enterPanel(element: HTMLElement) {
+  gsap.killTweensOf(element)
   return gsap.fromTo(
     element,
     { opacity: 0, y: 30 },
@@ -9,6 +10,7 @@ export function enterPanel(element: HTMLElement) {
 }
 
 export function exitPanel(element: HTMLElement, onComplete: () => void) {
+  gsap.killTweensOf(element)
   return gsap.to(element, {
     opacity: 0,
     y: -20,

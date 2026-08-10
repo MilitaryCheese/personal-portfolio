@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import styles from './Footer.module.css'
 import LiveClock from '../ui/LiveClock'
+import WipDialog from '../ui/WipDialog'
 import { useGlitch } from '../../hooks/useGlitch'
 
 interface FooterProps {
@@ -10,6 +11,13 @@ interface FooterProps {
 const Footer = ({ onAboutOpen }: FooterProps) => {
   const aboutRef = useRef<HTMLSpanElement>(null)
   const triggerAboutGlitch = useGlitch(aboutRef)
+  const [showWipDialog, setShowWipDialog] = useState(false)
+
+  const handleAboutClick = () => {
+    setShowWipDialog(true)
+    return
+    onAboutOpen()
+  }
 
   return (
     <footer className={styles.footer}>
@@ -21,10 +29,15 @@ const Footer = ({ onAboutOpen }: FooterProps) => {
         ref={aboutRef}
         className={styles.aboutLink}
         onMouseEnter={() => triggerAboutGlitch()}
-        onClick={onAboutOpen}
+        onClick={handleAboutClick}
       >
         [ ABOUT ]
       </span>
+      <WipDialog
+        open={showWipDialog}
+        onClose={() => setShowWipDialog(false)}
+        message="still a work in progress, I'll have more soon in a hot sec"
+      />
     </footer>
   )
 }

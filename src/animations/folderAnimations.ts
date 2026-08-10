@@ -46,7 +46,7 @@ export function typewriterIntro(element: HTMLElement, text: string) {
   const state = { chars: 0 }
   return gsap.to(state, {
     chars: text.length,
-    duration: text.length * 0.04,
+    duration: text.length * 0.09,
     ease: 'none',
     onUpdate: () => {
       element.textContent = text.slice(0, Math.round(state.chars))

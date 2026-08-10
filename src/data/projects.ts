@@ -16,8 +16,8 @@ export const projects: Project[] = [
       'Node.js': 'proxy server to hide the API key from curious devtools users',
       'OpenWeather API': 'free tier, judged nobody for it',
     },
-    demoUrl: '#',
-    githubUrl: '#',
+    demoUrl: 'https://weathered-app.vercel.app/',
+    githubUrl: 'https://github.com/MilitaryCheese/weathered-app',
     thumbnail: '',
     logline: 'A weather app that judges your outfit choices before you even ask.',
     origin:
@@ -46,10 +46,10 @@ export const projects: Project[] = [
   {
     id: 'driftly',
     codename: 'PROJECT_02',
-    name: 'Driftly',
-    displayName: 'DRIFTLY.APP',
-    slug: 'driftly',
-    year: '2024',
+    name: 'Studio Planner',
+    displayName: 'PLANNER_STUDIO.APP',
+    slug: 'studio_planner',
+    year: '2025',
     buildTime: '6 weekends across 4 months',
     stack: ['React', 'TypeScript', 'Supabase', 'Framer Motion'],
     stackReasoning: {
@@ -58,8 +58,8 @@ export const projects: Project[] = [
       Supabase: 'wanted a real backend without writing a real backend',
       'Framer Motion': 'the card reorder animation is doing a lot of emotional labor',
     },
-    demoUrl: '#',
-    githubUrl: '#',
+    demoUrl: 'https://studio-planner-pro.vercel.app/',
+    githubUrl: 'https://github.com/MilitaryCheese/studio-planner-pro',
     thumbnail: '',
     logline: 'A kanban board for people who have opinions about kanban boards.',
     origin:
