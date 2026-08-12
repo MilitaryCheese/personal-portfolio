@@ -1,16 +1,37 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
 }
 
 .prompt {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 2rem;
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
   text-transform: uppercase;
   font-size: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    align-items: center;
+  }
+
+  .prompt {
+    position: static;
+  }
+
+  .folderGrid {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
 }
 
 .folderGrid {

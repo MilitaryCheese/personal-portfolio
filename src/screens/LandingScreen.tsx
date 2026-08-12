@@ -8,6 +8,7 @@ import FolderGrid from '../components/landing/FolderGrid'
 import ProjectPanel from '../components/project/ProjectPanel'
 import type { ProjectPanelHandle } from '../components/project/ProjectPanel'
 import { useCursorPosition } from '../hooks/useCursorPosition'
+import { triggerAllGlitches } from '../hooks/glitchRegistry'
 import { initCRTAmbient } from '../animations/crtEffects'
 import styles from './LandingScreen.module.css'
 
@@ -47,6 +48,24 @@ const LandingScreen = ({
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [view])
+
+  useEffect(() => {
+  if (!window.matchMedia('(hover: none)').matches) return
+
+  let timeoutId: ReturnType<typeof setTimeout>
+
+  const scheduleNext = () => {
+    const delay = 2000 + Math.random() * 3000
+    timeoutId = setTimeout(() => {
+      triggerAllGlitches()
+      scheduleNext()
+    }, delay)
+  }
+
+  scheduleNext()
+
+  return () => clearTimeout(timeoutId)
+}, [])
 
   return (
     <div className={styles.landingScreen}>

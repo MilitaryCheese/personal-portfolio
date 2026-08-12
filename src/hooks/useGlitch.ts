@@ -1,6 +1,7 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import { gsap } from 'gsap'
 import type { RefObject } from 'react'
+import { registerGlitchTrigger } from './glitchRegistry'
 
 export function useGlitch<T extends HTMLElement>(ref: RefObject<T | null>) {
   const triggerGlitch = useCallback(() => {
@@ -35,6 +36,10 @@ export function useGlitch<T extends HTMLElement>(ref: RefObject<T | null>) {
       })
 
   }, [ref])
+
+  useEffect(() => {
+    return registerGlitchTrigger(triggerGlitch)
+  }, [triggerGlitch])
 
   return triggerGlitch
 }
