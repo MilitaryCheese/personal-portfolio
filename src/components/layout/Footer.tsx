@@ -36,7 +36,7 @@ const Footer = ({ onAboutOpen }: FooterProps) => {
       <WipDialog
         open={showWipDialog}
         onClose={() => setShowWipDialog(false)}
-        message="still a work in progress, I'll have more soon in a hot sec"
+        message="still a work in progress, I'll have more soon in a hot sec. just fyi that this portfolio wasn't vibe coded, it started with a legit figma file because i had a lot of opinions about how i wanted my portfolio to look like. im also a big fan of gsap and took the liberty to add a lot of animations and effects that i thought would be fun to implement :3 hope you enjoy it x"
       />
     </footer>
   )
