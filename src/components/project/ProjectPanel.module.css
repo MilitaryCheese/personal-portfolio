@@ -7,6 +7,14 @@
   width: min(800px, calc(100% - 6rem));
 }
 
+@media (max-width: 640px) {
+  .panelWrapper {
+    top: 6rem;
+    bottom: 3rem;
+    width: calc(100% - 2rem);
+  }
+}
+
 .panel {
   height: 100%;
   overflow-y: auto;
@@ -99,7 +107,9 @@
   z-index: 10;
 }
 
-.tag:hover .tooltip {
+.tag:hover .tooltip,
+.tag:focus .tooltip,
+.tag:focus-visible .tooltip {
   opacity: 1;
 }
 

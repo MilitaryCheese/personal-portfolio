@@ -74,7 +74,7 @@ const ProjectPanel = forwardRef<ProjectPanelHandle, ProjectPanelProps>(({ projec
         <ProjectSection heading="STACK">
           <ul className={styles.stackList}>
             {project.stack.map((tech) => (
-              <li key={tech} className={styles.tag}>
+              <li key={tech} className={styles.tag} tabIndex={0}>
                 {tech}
                 <span className={`${styles.tooltip} text-small`}>{project.stackReasoning[tech]}</span>
               </li>

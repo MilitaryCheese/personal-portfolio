@@ -9,6 +9,17 @@
   justify-content: space-between;
 }
 
+@media (max-width: 640px) {
+  .footer {
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .credit {
+    display: none;
+  }
+}
+
 .credit {
   text-transform: lowercase;
 }
