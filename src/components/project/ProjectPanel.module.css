@@ -17,6 +17,15 @@
 
 .panel {
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.leftContent {
+  flex: 0 0 70%;
+  max-width: 70%;
+  height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -26,22 +35,66 @@
   scrollbar-color: var(--color-dim) transparent;
 }
 
-.panel::-webkit-scrollbar {
+.leftContent::-webkit-scrollbar {
   width: 6px;
 }
 
-.panel::-webkit-scrollbar-thumb {
+.leftContent::-webkit-scrollbar-thumb {
   background: var(--color-dim);
 }
 
-.panel::-webkit-scrollbar-track {
+.leftContent::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.hero {
+.rightSidebar {
+  flex: 0 0 30%;
+  max-width: 30%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.25rem;
+  padding-left: 2rem;
+  border-left: 1px solid var(--color-dim);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-dim) transparent;
+}
+
+.rightSidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rightSidebar::-webkit-scrollbar-thumb {
+  background: var(--color-dim);
+}
+
+.rightSidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .leftContent,
+  .rightSidebar {
+    flex: 1 1 auto;
+    max-width: 100%;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .rightSidebar {
+    border-left: none;
+    border-top: 1px solid var(--color-dim);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    order: -1;
+  }
 }
 
 .codename {
@@ -49,18 +102,62 @@
 }
 
 .name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.1;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .logline {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: var(--color-secondary);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-live {
+  background: var(--color-primary);
+}
+
+.status-in-development {
+  background: var(--color-accent);
+}
+
+.status-archived {
+  background: var(--color-muted);
+}
+
+.roleTag {
+  align-self: flex-start;
+  border: 1px solid var(--color-dim);
+  padding: 0.25rem 0.6rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-dim);
+  margin: 0;
+  width: 100%;
 }
 
 .links {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .link {
@@ -72,28 +169,29 @@
   text-decoration: underline;
 }
 
+.sidebarHeading {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 .stackList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
   list-style: none;
 }
 
 .tag {
   position: relative;
   border: 1px solid var(--color-dim);
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.6rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   cursor: default;
 }
 
 .tooltip {
-  position: absolute;
-  bottom: calc(100% + 0.5rem);
-  left: 50%;
-  transform: translateX(-50%);
   width: max-content;
   max-width: 220px;
   padding: 0.5rem 0.75rem;
@@ -101,16 +199,15 @@
   border: 1px solid var(--color-dim);
   color: var(--color-secondary);
   text-transform: none;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.15s ease;
-  z-index: 10;
+  z-index: 1000;
 }
 
-.tag:hover .tooltip,
-.tag:focus .tooltip,
-.tag:focus-visible .tooltip {
-  opacity: 1;
+.keyPatternsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  list-style: none;
 }
 
 .list {
@@ -131,39 +228,6 @@
   padding: 3rem 0;
   text-align: center;
   border: 1px dashed var(--color-dim);
-}
-
-.panicLevel {
-  margin-top: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.panic-low {
-  color: var(--color-primary);
-}
-
-.panic-moderate {
-  color: var(--color-accent);
-}
-
-.panic-high {
-  color: var(--color-danger);
-}
-
-.panic-existential {
-  color: var(--color-danger);
-  animation: existentialBlink 1s steps(1) infinite;
-}
-
-@keyframes existentialBlink {
-  50% {
-    opacity: 0.2;
-  }
-}
-
-.attribution {
-  margin-top: 0.25rem;
 }
 
 .backButton {

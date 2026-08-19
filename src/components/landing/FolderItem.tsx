@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import styles from './FolderItem.module.css'
 import GlitchText from '../ui/GlitchText'
-import WipDialog from '../ui/WipDialog'
 import { useGlitch } from '../../hooks/useGlitch'
 import { onFolderClick, onFolderHover, onFolderLeave } from '../../animations/folderAnimations'
 import type { Project } from '../../types'
@@ -16,7 +15,6 @@ const FolderItem = ({ project, registerRef, onSelect }: FolderItemProps) => {
   const itemRef = useRef<HTMLDivElement | null>(null)
   const iconRef = useRef<HTMLDivElement>(null)
   const [isGlitching, setIsGlitching] = useState(false)
-  const [showWipDialog, setShowWipDialog] = useState(false)
   const triggerIconGlitch = useGlitch(iconRef)
 
   const setRefs = (element: HTMLDivElement | null) => {
@@ -35,16 +33,7 @@ const FolderItem = ({ project, registerRef, onSelect }: FolderItemProps) => {
     onFolderLeave(itemRef.current)
   }
 
-  // kept for manual dev/prod toggling — swap the onClick target below to switch
-  const handleClickDev = () => {
-    onFolderClick(itemRef.current)
-    onSelect(project)
-  }
-  void handleClickDev
-
-  const handleClickProd = () => {
-    setShowWipDialog(true)
-    return
+  const handleClick = () => {
     onFolderClick(itemRef.current)
     onSelect(project)
   }
@@ -55,7 +44,7 @@ const FolderItem = ({ project, registerRef, onSelect }: FolderItemProps) => {
       className={styles.folderItem}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClickProd} // change to handleClickDev for dev mode
+      onClick={handleClick}
     >
       <div ref={iconRef} className={styles.icon} aria-hidden="true">
         <svg className={styles.iconSvg} viewBox="0 0 24 20" focusable="false">
@@ -65,12 +54,6 @@ const FolderItem = ({ project, registerRef, onSelect }: FolderItemProps) => {
       <GlitchText trigger={isGlitching} className={`${styles.displayName} text-base`}>
         {project.displayName}
       </GlitchText>
-      <WipDialog
-        open={showWipDialog}
-        onClose={() => setShowWipDialog(false)}
-        message="still hashing out the deets of these, but check out the demo here:"
-        link={{ href: project.demoUrl, label: 'DEMO' }}
-      />
     </div>
   )
 }

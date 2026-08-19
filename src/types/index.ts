@@ -5,9 +5,12 @@ export interface Project {
   displayName: string
   slug: string
   year: string
-  buildTime: string
+  status: 'live' | 'in development' | 'archived'
+  roleType: 'Front-end heavy' | 'Full stack' | 'Design + Dev'
   stack: string[]
   stackReasoning: Record<string, string>
+  keyPatterns: string[]
+  architectureNote: string
   demoUrl: string
   githubUrl: string
   thumbnail: string
@@ -15,10 +18,7 @@ export interface Project {
   origin: string
   approach: string
   proudOf: string[]
-  thingsNotFixed: string[]
+  ifIRebuiltThis: string[]
   challenges: string[]
-  friendsFeedback: string[]
-  oldBossWouldSay: string
-  panicMoment: string
-  panicLevel: 'low' | 'moderate' | 'high' | 'existential'
+  whatPeopleSaid: string[]
 }
