@@ -26,7 +26,7 @@ export interface AboutInfo {
 
 export const about: AboutInfo = {
   name: 'Kesh Jayasinghe',
-  photo: '../../../public/photo.png',
+  photo: 'https://lh3.googleusercontent.com/d/1Dy1cv3t37geC8VJy0HNhBJkEJQyFE_Ub',
   availability:
     'Front-end and full stack engineering roles in Melbourne at product companies, agencies, and startups.',
   techStack: [
