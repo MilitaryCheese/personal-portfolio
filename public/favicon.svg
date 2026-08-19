@@ -1,1 +1,12 @@
-<svg class="FolderItem-module__iconSvg" viewBox="0 0 24 20" focusable="false"><path d="M1 3a2 2 0 0 1 2-2h5.17a2 2 0 0 1 1.41.59L11 3h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3z"></path></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c7bdb2;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m31.38,0l-7.83,37.24h1.06l21.83-19.19,4.23,4.49-19.46,17.08v1.58l11.36,15.49c.35.41.73.62,1.14.62.35,0,.73-.15,1.14-.44l4.23-3.08,3.7,5.2-3.96,2.99c-.82.65-1.67,1.14-2.55,1.5-.88.35-1.82.53-2.82.53-1.18,0-2.3-.29-3.39-.88-1.09-.58-2.13-1.55-3.13-2.9l-12.15-16.64h-2.64l-4.05,19.19h-6.87L24.52,0h6.87Z"/>
+</svg>
